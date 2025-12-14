@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 export const Contact: React.FC = () => {
   return (
     <Section id="contact" className="pb-0" noBorder>
-      <div className="bg-text-primary text-white p-8 md:p-20 lg:p-24 relative overflow-hidden">
+      <div className="bg-text-primary text-white p-8 md:p-20 lg:p-24 relative overflow-hidden rounded-2xl"> 
         {/* Abstract Background Element */}
         <div className="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-accent/20 rounded-full blur-[150px] pointer-events-none animate-pulse"></div>
 
@@ -38,7 +38,8 @@ export const Contact: React.FC = () => {
 
           <motion.form 
             variants={{ hidden: { opacity: 0, x: 20 }, visible: { opacity: 1, x: 0 } }}
-            className="space-y-6 bg-white/5 p-8 border border-white/10 backdrop-blur-md shadow-2xl" 
+            // 1. Added 'relative' and increased 'pb-24' so content doesn't overlap the absolute button
+            className="space-y-6 bg-white/5 p-8 pb-24 border border-white/10 backdrop-blur-md shadow-2xl relative" 
             onSubmit={(e) => e.preventDefault()}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -69,7 +70,8 @@ export const Contact: React.FC = () => {
               ></textarea>
             </div>
 
-            <button className="w-full bg-white text-text-primary font-bold py-4 hover:bg-accent hover:text-white transition-colors duration-300 uppercase tracking-widest mt-4">
+            {/* 2. Changed to absolute positioning at bottom-4 */}
+            <button className="absolute bottom-8 left-8 right-8 bg-white text-text-primary font-bold py-4 hover:bg-accent hover:text-white transition-colors duration-300 uppercase tracking-widest">
               Send Message
             </button>
           </motion.form>
